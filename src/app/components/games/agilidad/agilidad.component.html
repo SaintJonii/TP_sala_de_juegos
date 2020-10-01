@@ -1,1 +1,55 @@
-<p>agilidad works!</p>
+<div class="modal" id="id02" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">RESULTADO</h5>
+
+            </div>
+            <div class="modal-body">
+                {{mensajeResultado}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="titulo">
+    <h1 style="text-align: center">
+        {{nombreJuego | uppercase }}!
+    </h1>
+</div><br><br>
+
+<div class="formJuego ">
+    <div class="container row ">
+
+        <div class="col-md-6 ">
+            <h4>Primer Número: {{this.pNumero}}</h4>
+            <h4>Operación: {{this.sOperador}}</h4>
+            <h4>Segundo Número: {{this.sNumero}}</h4>
+        </div>
+
+        <div class="col-md-6 ">
+
+            <h2 [hidden]="!ocultarVerificar "><a (click)="NuevoJuego() "
+                    class="btn btn-info btn-lg btn-block ">Nuevo</a></h2>
+
+            <h2 [hidden]="ocultarVerificar "><a (click)="verificar() "
+                    class="btn btn-success btn-lg btn-block ">Verificar {{Tiempo}} </a></h2>
+            <hr>
+
+            <div class="input-group mb-3 ">
+                Respuesta: <input [(ngModel)]="this.respuesta " placeholder="ingrese numero " name="numeroIngresado "
+                    type="text " class="form-control " style="width:50% " />
+            </div>
+            <hr>
+        </div>
+
+        <div class="container " style="align-content: center ">
+            <h2>
+                <p><i class="fa fa-spinner fa-spin "></i>Esperando a que te animes...</p>
+            </h2>
+        </div>
+
+        <!-- <h3 [hidden]="!nuevoJuego.gano ">usted adivino el número</h3>
+      <h3 [hidden]="nuevoJuego.gano ">usted aún no gano </h3> -->
+    </div>
+</div>
