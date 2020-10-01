@@ -1,17 +1,30 @@
-<div>
-    <mat-toolbar color="primary" class="mat-elevation-z8">
-        <div fxShow="true" fxHide.gt-sm="true">
-            <button mat-icon-button (click)="sidenav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-        </div>
-        <span>
-            <mat-icon>eco</mat-icon> Sala de Juegos
-        </span>
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <span>
+        <mat-icon>eco</mat-icon> Sala de Juegos
+    </span>
 
-        <div class="spacer"></div>
+    <div class="spacer"></div>
 
-        <div fxShow="true" fxHide.lt-md="true">
+    <div fxShow="true" fxHide.lt-md="true">
+        <a mat-button routerLink="home">Home</a>
+        <a mat-button routerLink="games/anagrama">Anagrama</a>
+        <a mat-button routerLink="games/ppt">PPT</a>
+        <a mat-button routerLink="games/agilidadNum">Agilidad Aritmética</a>
+        <a mat-button routerLink="games/adivinaNum">Adivinar Número</a>
+        <a mat-button routerLink="games/tateti">Tateti</a>
+        <a mat-button routerLink="games/memotest">Memotest</a>
+        <a mat-button routerLink="about"> About Us</a>
+
+    </div>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+        <div fxLayout="column">
             <a mat-button routerLink="home">Home</a>
             <a mat-button routerLink="games/anagrama">Anagrama</a>
             <a mat-button routerLink="games/ppt">PPT</a>
@@ -20,23 +33,7 @@
             <a mat-button routerLink="games/tateti">Tateti</a>
             <a mat-button routerLink="games/memotest">Memotest</a>
             <a mat-button routerLink="about"> About Us</a>
-
         </div>
-    </mat-toolbar>
-    <mat-sidenav-container fxFlexFill class="example-container">
-        <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
-            <div fxLayout="column">
-                <a mat-button routerLink="home">Home</a>
-                <a mat-button routerLink="games/anagrama">Anagrama</a>
-                <a mat-button routerLink="games/ppt">PPT</a>
-                <a mat-button routerLink="games/agilidadNum">Agilidad Aritmética</a>
-                <a mat-button routerLink="games/adivinaNum">Adivinar Número</a>
-                <a mat-button routerLink="games/tateti">Tateti</a>
-                <a mat-button routerLink="games/memotest">Memotest</a>
-                <a mat-button routerLink="about"> About Us</a>
-            </div>
-        </mat-sidenav>
-        <router-outlet> </router-outlet>
-    </mat-sidenav-container>
-
-</div>
+    </mat-sidenav>
+    <router-outlet> </router-outlet>
+</mat-sidenav-container>
