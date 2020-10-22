@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,11 @@ import { TatetiComponent } from './components/games/tateti/tateti.component';
 import { MemotestComponent } from './components/games/memotest/memotest.component';
 import { AboutComponent } from './components/about/about.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     AdivinarNumComponent,
     TatetiComponent,
     MemotestComponent,
-    AboutComponent
+    AboutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,12 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     FlexLayoutModule,
     MatSidenavModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    MatCardModule,
+    MatTabsModule,
+    MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

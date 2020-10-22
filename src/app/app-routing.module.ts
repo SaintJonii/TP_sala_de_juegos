@@ -8,10 +8,13 @@ import { MemotestComponent } from '../app/components/games/memotest/memotest.com
 import { AnagramaComponent } from '../app/components/games/anagrama/anagrama.component';
 import { AgilidadComponent } from '../app/components/games/agilidad/agilidad.component';
 import { AdivinarNumComponent } from '../app/components/games/adivinar-num/adivinar-num.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginGuard } from './guards/login.guard';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [LoginGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'games/tateti', component: TatetiComponent },
   { path: 'games/ppt', component: PptComponent },
   { path: 'games/memotest', component: MemotestComponent },
@@ -19,6 +22,7 @@ const routes: Routes = [
   { path: 'games/agilidadNum', component: AgilidadComponent },
   { path: 'games/adivinaNum', component: AdivinarNumComponent },
   { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: HomeComponent }
 ];
 

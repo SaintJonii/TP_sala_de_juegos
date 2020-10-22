@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tpsala-27710": {
+      "hosting": {
+        "TpSala": [
+          "tpsala-27710"
+        ]
+      }
+    }
+  }
+}
