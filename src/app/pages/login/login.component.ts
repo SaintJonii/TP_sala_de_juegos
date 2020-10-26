@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -15,12 +16,14 @@ export class LoginComponent implements OnInit {
   reg_pass: string;
   reg_confirm_pass: string;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  login() { }
+  login() {
+    this.auth.loginUser(this.log_email, this.log_pass);
+  }
 
   register() { }
 
