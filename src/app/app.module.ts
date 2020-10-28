@@ -26,7 +26,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
-
+import { CartaComponent } from './components/carta/carta.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatInputModule } from '@angular/material/input';
     TatetiComponent,
     MemotestComponent,
     AboutComponent,
-    LoginComponent
+    LoginComponent,
+    CartaComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { MatInputModule } from '@angular/material/input';
     AngularFireModule.initializeApp(environment.firebase),
     MatCardModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
 
   ],
   providers: [],

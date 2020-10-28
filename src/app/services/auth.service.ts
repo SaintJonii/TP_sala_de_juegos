@@ -50,12 +50,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    if (localStorage.getItem('tokenId') != null) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return localStorage.getItem('tokenId') != null;
   }
 
 }

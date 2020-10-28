@@ -1,0 +1,26 @@
+.card-container {
+    width: 13vw;
+    height: 18vw;
+}
+
+.flippable-card .front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flippable-card .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY( 180deg );
+}
+
+.flippable-card.flipped {
+    transform: rotateY( 180deg );
+}
+
+img{
+    width: 80%;
+    height: 70%;
+}

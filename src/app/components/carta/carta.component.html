@@ -1,0 +1,11 @@
+<mat-card class="example-card">
+
+    <div class='flippable-card' [ngClass]="{'flipped' : flipped}" (click)='voltearCarta()'>
+        <div *ngIf="!flipped" class='front'>
+            <img mat-card-image draggable="false" [src]="srcFrente">
+        </div>
+        <div *ngIf="flipped" class='back'>
+            <img class="disable-selection" draggable="false" [src]="srcReverso">
+        </div>
+    </div>
+</mat-card>
