@@ -1,7 +1,12 @@
-.content {
-    padding: 100px;
-}
+.content { 
+    padding: 12px; 
+    text-align: -webkit-center;
+  }
 
-.content > mat-card {
-    margin-bottom: 16px;
-}
+  .center-content{
+    width: 40%;   
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    text-align: -webkit-center;
+  }

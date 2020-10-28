@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CartaComponent implements OnInit {
 
-  srcReverso: string = "assets/logo.png";
+  srcReverso: string = "assets/logo.JPG";
   @Input() flipped: boolean;
   @Input() canBeFlipped: boolean;
   @Input() srcFrente: string;

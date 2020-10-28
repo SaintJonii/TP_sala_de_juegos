@@ -8,22 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class MemotestComponent implements OnInit {
 
   listImg = [
-    { id: 0, src: "assets/bar.png", flipped: true, canBeFlipped: false },
-    { id: 1, src: "assets/bol.png", flipped: true, canBeFlipped: false },
-    { id: 2, src: "assets/grey.png", flipped: true, canBeFlipped: false },
-    { id: 3, src: "assets/lann.png", flipped: true, canBeFlipped: false },
-    { id: 4, src: "assets/stark.png", flipped: true, canBeFlipped: false },
-    { id: 5, src: "assets/mar.png", flipped: true, canBeFlipped: false },
-    { id: 6, src: "assets/tar.png", flipped: true, canBeFlipped: false },
-    { id: 7, src: "assets/tyrell.png", flipped: true, canBeFlipped: false },
-    { id: 8, src: "assets/bar.png", flipped: true, canBeFlipped: false },
-    { id: 9, src: "assets/bol.png", flipped: true, canBeFlipped: false },
-    { id: 10, src: "assets/grey.png", flipped: true, canBeFlipped: false },
-    { id: 11, src: "assets/lann.png", flipped: true, canBeFlipped: false },
-    { id: 12, src: "assets/stark.png", flipped: true, canBeFlipped: false },
-    { id: 13, src: "assets/mar.png", flipped: true, canBeFlipped: false },
-    { id: 14, src: "assets/tar.png", flipped: true, canBeFlipped: false },
-    { id: 15, src: "assets/tyrell.png", flipped: true, canBeFlipped: false },
+    { id: 0, src: "assets/bar.JPG", flipped: true, canBeFlipped: false },
+    { id: 1, src: "assets/arryn.JPG", flipped: true, canBeFlipped: false },
+    { id: 2, src: "assets/grey.JPG", flipped: true, canBeFlipped: false },
+    { id: 3, src: "assets/lann.JPG", flipped: true, canBeFlipped: false },
+    { id: 4, src: "assets/stark.JPG", flipped: true, canBeFlipped: false },
+    { id: 5, src: "assets/mar.JPG", flipped: true, canBeFlipped: false },
+    { id: 6, src: "assets/tar.JPG", flipped: true, canBeFlipped: false },
+    { id: 7, src: "assets/tyrell.JPG", flipped: true, canBeFlipped: false },
+    { id: 8, src: "assets/bar.JPG", flipped: true, canBeFlipped: false },
+    { id: 9, src: "assets/arryn.JPG", flipped: true, canBeFlipped: false },
+    { id: 10, src: "assets/grey.JPG", flipped: true, canBeFlipped: false },
+    { id: 11, src: "assets/lann.JPG", flipped: true, canBeFlipped: false },
+    { id: 12, src: "assets/stark.JPG", flipped: true, canBeFlipped: false },
+    { id: 13, src: "assets/mar.JPG", flipped: true, canBeFlipped: false },
+    { id: 14, src: "assets/tar.JPG", flipped: true, canBeFlipped: false },
+    { id: 15, src: "assets/tyrell.JPG", flipped: true, canBeFlipped: false },
 
   ];
 
@@ -109,7 +109,7 @@ export class MemotestComponent implements OnInit {
             carta.flipped = !carta.flipped;
           }
         });
-      }, 2000);
+      }, 1500);
 
       this.cartasSeleccionadas = 0;
     }
