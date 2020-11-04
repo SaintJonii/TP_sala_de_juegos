@@ -28,6 +28,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { CartaComponent } from './components/carta/carta.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { CeldaComponent } from './components/celda/celda.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MemotestComponent,
     AboutComponent,
     LoginComponent,
-    CartaComponent
+    CartaComponent,
+    CeldaComponent
   ],
   imports: [
     BrowserModule,

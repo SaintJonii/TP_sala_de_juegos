@@ -35,8 +35,8 @@ export class MemotestComponent implements OnInit {
 
   mensaje: string = "Recordá la posición de las tarjetas!!";
 
-  carta1: any = {}
-  carta2: any = {}
+  carta1: any = {};
+  carta2: any = {};
   cartasSeleccionadas: number = 0;
 
   constructor() {

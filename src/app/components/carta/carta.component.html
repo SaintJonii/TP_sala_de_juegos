@@ -1,14 +1,27 @@
-<mat-card class="mat-elevation-z4 example-card">
+<!-- <mat-card class="mat-elevation-z4 example-card">
     <mat-card-header>
         <div class='flippable-card' [ngClass]="{'flipped' : flipped}" (click)='voltearCarta()'>
             <div *ngIf="!flipped" class='front'>
                 <img mat-card-image draggable="false" [src]="srcFrente">
             </div>
-            <div *ngIf="flipped" class='back'>
+            <div class='flippable-card' *ngIf="flipped" class='back'>
                 <img mat-card-image class="disable-selection" draggable="false" [src]="srcReverso">
             </div>
         </div>
     </mat-card-header>
 
+
+</mat-card> -->
+
+<mat-card class="example-card mat-elevation-z4 ">
+
+    <div class='flippable-card' [ngClass]="{'flipped' : flipped}" (click)='voltearCarta()'>
+        <div *ngIf="!flipped" class='front'>
+            <img mat-card-image draggable="false" [src]="srcFrente">
+        </div>
+        <div class='flippable-card' *ngIf="flipped" class='back'>
+            <img mat-card-image class="disable-selection" draggable="false" [src]="srcReverso">
+        </div>
+    </div>
 
 </mat-card>
