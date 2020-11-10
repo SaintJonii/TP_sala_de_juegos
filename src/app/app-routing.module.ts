@@ -10,6 +10,7 @@ import { AgilidadComponent } from '../app/components/games/agilidad/agilidad.com
 import { AdivinarNumComponent } from '../app/components/games/adivinar-num/adivinar-num.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginGuard } from './guards/login.guard';
+import { TriviaComponent } from './components/games/trivia/trivia.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'games/anagrama', component: AnagramaComponent, canActivate: [LoginGuard] },
   { path: 'games/agilidadNum', component: AgilidadComponent, canActivate: [LoginGuard] },
   { path: 'games/adivinaNum', component: AdivinarNumComponent, canActivate: [LoginGuard] },
+  { path: 'games/trivia', component: TriviaComponent, canActivate: [LoginGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent, canActivate: [LoginGuard] },
 

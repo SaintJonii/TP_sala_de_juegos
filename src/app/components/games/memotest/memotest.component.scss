@@ -1,12 +1,24 @@
-.content { 
+ .content { 
     padding: 12px; 
     text-align: -webkit-center;
   }
 
   .center-content{
-    width: 40%;   
+    width: 30%;   
     display: block;
     margin: 20px auto;
     position: relative;
     text-align: -webkit-center;
   }
+
+
+  /* Se puede hacer responsive con media-query 
+
+  @media (min-width: 768px) { 
+            .testimonial-text p{
+                font-size: 2.625rem;
+            }
+
+  max-width
+
+  */

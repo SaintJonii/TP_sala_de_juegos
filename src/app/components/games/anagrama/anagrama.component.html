@@ -1,2 +1,29 @@
 <app-navbar></app-navbar>
-<p>anagrama works!</p>
+
+<div style="text-align:center">
+    <h1>
+        ANAGRAMA
+    </h1>
+
+    <mat-list>
+        <mat-list-item>
+            <h1>La palabra a ordenar es : <b>{{palabraDesordenada}}</b></h1>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <h3 *ngIf="palabra != '' ">{{msjAyuda}} : Empieza con <b>{{primerLet}}</b> y termina con
+                <b>{{ultimaLet}}</b></h3>
+        </mat-list-item>
+    </mat-list>
+
+    <form class="example-form" *ngIf="showInput">
+        <mat-form-field class="example-full-width">
+            <mat-label>Palabra</mat-label>
+            <input type="text" matInput placeholder="Ingresa la palabra ordenada" [(ngModel)]="palabraIngresada"
+                name="palabraIngresada">
+        </mat-form-field>
+        <button mat-raised-button color="warn" (click)="comparar()">Enviar palabra!</button>
+    </form>
+
+    <button mat-raised-button color="primary" (click)="cargarPalabra()">¡Empezar!</button>
+</div>

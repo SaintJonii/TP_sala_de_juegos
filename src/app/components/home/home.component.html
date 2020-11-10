@@ -2,13 +2,20 @@
 <div class="jumbotron jumbotron-fluid animated fadeIn fast">
 
     <div class="container">
-        <h1 class="display-4">Sala de Juegos</h1>
-        <p class="lead">Esta es una aplicacion con varios juegos.</p>
+        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let juego of listJuegos">
+
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>{{juego.nombre}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="juego.src">
+                </mat-card>
+
+            </div>
+        </div>
+
+
     </div>
 
 </div>
-
-
-<md-content layout-padding>
-    Lorem ipsum dolor sit amet, ne quod novum mei.
-</md-content>

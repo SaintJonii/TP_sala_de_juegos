@@ -28,7 +28,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { CartaComponent } from './components/carta/carta.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 import { CeldaComponent } from './components/celda/celda.component';
+import { TriviaComponent } from './components/games/trivia/trivia.component';
+import { MatRadioModule } from '@angular/material/radio'
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { CeldaComponent } from './components/celda/celda.component';
     AboutComponent,
     LoginComponent,
     CartaComponent,
-    CeldaComponent
+    CeldaComponent,
+    TriviaComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,10 @@ import { CeldaComponent } from './components/celda/celda.component';
     MatCardModule,
     MatTabsModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDividerModule,
+    MatListModule,
+    MatRadioModule
 
   ],
   providers: [],
