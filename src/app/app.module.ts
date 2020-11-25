@@ -32,7 +32,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { CeldaComponent } from './components/celda/celda.component';
 import { TriviaComponent } from './components/games/trivia/trivia.component';
-import { MatRadioModule } from '@angular/material/radio'
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [

@@ -1,36 +1,38 @@
 <app-navbar></app-navbar>
 
-<div style="text-align:center">
-    <h1>
-        TRIVIA
-    </h1>
+<div class="center-content">
+    <mat-card>
+        <mat-card-title>
+            TRIVIA
+            <hr>
+            <h3>Suma puntos respondiendo las preguntas en racha!</h3>
+        </mat-card-title>
 
-    <mat-list>
-        <mat-list-item>
-            <h1 *ngIf="!showPregunta">Cuando estes listo, empezamos con las preguntas</h1>
-            <h1 *ngIf="showPregunta">La pregunta a contestar es la siguiente</h1>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>
-            <h1 *ngIf="showPregunta">{{pregunta.pregunta}}</h1>
-        </mat-list-item>
+        <mat-list>
+            <mat-list-item>
+                <h1 *ngIf="!showPregunta">Cuando estes listo, empezamos con las preguntas</h1>
+                <h1 *ngIf="showPregunta">La pregunta a contestar es la siguiente</h1>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <h1 *ngIf="showPregunta">{{pregunta.pregunta}}</h1>
+            </mat-list-item>
 
-        <mat-list-item *ngIf="showPregunta">
-            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-                name="respSeleccionada" [(ngModel)]="respSeleccionada">
-                <mat-radio-button class="example-radio-button" *ngFor="let resp of listResp" [value]="resp">
-                    {{resp}}
-                </mat-radio-button>
-            </mat-radio-group>
-        </mat-list-item>
-
-
-
-    </mat-list>
+            <mat-list-item *ngIf="showPregunta">
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    name="respSeleccionada" [(ngModel)]="respSeleccionada">
+                    <mat-radio-button class="example-radio-button" *ngFor="let resp of listResp" [value]="resp">
+                        {{resp}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </mat-list-item>
+        </mat-list>
 
 
-    <button mat-raised-button color="primary" *ngIf="!showPregunta" (click)="cargarPregunta()">Listo para
-        responder!</button>
+        <button mat-raised-button color="primary" *ngIf="!showPregunta" (click)="cargarPregunta()">Listo para
+            responder!</button>
 
-    <button mat-raised-button color="warn" *ngIf="showPregunta" (click)="comparar()">Corroborar Respuesta</button>
+        <button mat-raised-button color="warn" *ngIf="showPregunta" (click)="comparar()">Corroborar Respuesta</button>
+
+    </mat-card>
 </div>

@@ -56,7 +56,6 @@ export class AgilidadComponent implements OnInit {
     this.repetidor = setInterval(() => {
 
       this.Tiempo--;
-      console.log('llego', this.Tiempo);
       if (this.Tiempo === 0) {
         clearInterval(this.repetidor);
         this.verificar();
@@ -85,8 +84,6 @@ export class AgilidadComponent implements OnInit {
       }
 
     }
-
-    document.getElementById('id02').style.display = 'block';
 
     this.ocultarVerificar = true;
     clearInterval(this.repetidor);

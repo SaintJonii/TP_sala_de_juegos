@@ -1,34 +1,33 @@
 <app-navbar></app-navbar>
 
 <div class="center-content">
+    <mat-card>
+        <mat-card-title>
+            MEMOTEST
+            <hr>
+            <h3>Encontra las casas de Westeros!</h3>
+        </mat-card-title>
+        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of listImg">
 
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of listImg">
+                <app-carta [flipped]="item.flipped" [canBeFlipped]="item.canBeFlipped" [srcFrente]="item.src"
+                    (click)="darVuelta(item.id)"></app-carta>
 
-            <app-carta [flipped]="item.flipped" [canBeFlipped]="item.canBeFlipped" [srcFrente]="item.src"
-                (click)="darVuelta(item.id)"></app-carta>
-
+            </div>
         </div>
-    </div>
 
 
-    <div class="content" *ngIf="activado" style="padding-top: 15px; padding-bottom: 15px;">
-        <h1>
-            ¿Listo para arrancar?
-            <br>
-            <b>Busca las coincidencias de Westeros</b>...
-            <br><br>
-            ¡Presiona el botón para empezar a jugar!
-        </h1>
-        <button mat-raised-button color="primary" (click)="mostrarCartas()">¡Mostar las tarjetas!</button>
-    </div>
-
-    <div class="content" *ngIf="!activado" style="padding-top: 15px; padding-bottom: 15px;">
-        <h1 *ngIf="!contador"><b>{{mensaje}}</b></h1>
-        <div *ngIf="contador">
-            <h1><b>Tiempo transcurrido:<br>{{display}}</b></h1>
-            <h3>{{mensaje}}</h3>
+        <div class="content" *ngIf="activado" style="padding-top: 15px; padding-bottom: 15px;">
+            <button mat-raised-button color="primary" (click)="mostrarCartas()">¡Mostar las tarjetas!</button>
         </div>
-    </div>
+
+        <div class="content" *ngIf="!activado" style="padding-top: 15px; padding-bottom: 15px;">
+            <h1 *ngIf="!contador"><b>{{mensaje}}</b></h1>
+            <div *ngIf="contador">
+                <h1><b>Tiempo transcurrido:<br>{{display}}</b></h1>
+                <h3>{{mensaje}}</h3>
+            </div>
+        </div>
+    </mat-card>
 
 </div>

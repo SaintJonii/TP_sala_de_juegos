@@ -1,0 +1,23 @@
+.center-content{
+    width: 50%;   
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    text-align: -webkit-center;
+  }
+
+  .mat-button{
+    margin-top: 10px;
+    width: 40%;
+    color: white;
+    height: 40px;
+    background-color: #3F51B5;
+  }
+
+  .mat-raised-button{
+    margin-top: 10px;
+    width: 40%;
+    color: white;
+    height: 40px;
+    background-color: rgb(89, 112, 245);
+  }
