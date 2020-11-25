@@ -10,8 +10,16 @@ mat-grid-list{
 
 .grid{
     height: 30vw;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     display: flex;
     justify-content: center;
 }
+
+.center-content{
+    width: 50%;   
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    text-align: -webkit-center;
+  }

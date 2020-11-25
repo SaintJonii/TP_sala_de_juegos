@@ -9,8 +9,8 @@ export class PptComponent implements OnInit {
 
   jugadas: number = 0;
   ganadas: number = 0;
-  usuario: string = "assets/piedrapapeltijera.png";
-  IA: string = "assets/piedrapapeltijera.png";
+  usuario: string = "assets/user.png";
+  IA: string = "assets/computer.png";
   opUser: number;
   opIA: number;
   resultado: string = "Esperando...";
@@ -25,15 +25,15 @@ export class PptComponent implements OnInit {
     this.resultado = "Esperando...";
     if (opcion == 0) {
       this.opUser = 0;
-      this.usuario = "assets/piedra.png";
+      this.usuario = "assets/piedra.PNG";
     }
     else if (opcion == 1) {
       this.opUser = 1;
-      this.usuario = "assets/papel.png";
+      this.usuario = "assets/papel.PNG";
     }
     else if (opcion == 2) {
       this.opUser = 2
-      this.usuario = "assets/tijera.png";
+      this.usuario = "assets/tijera.PNG";
     }
     this.juegaIA();
   }
@@ -41,15 +41,15 @@ export class PptComponent implements OnInit {
   juegaIA() {
     this.opIA = Math.floor(Math.random() * 3);
     if (this.opIA == 0) {
-      this.IA = "assets/piedra.png";
+      this.IA = "assets/piedra.PNG";
     }
     else if (this.opIA == 1) {
       this.opIA = 1;
-      this.IA = "assets/papel.png";
+      this.IA = "assets/papel.PNG";
     }
     else if (this.opIA == 2) {
       this.opIA = 2
-      this.IA = "assets/tijera.png";
+      this.IA = "assets/tijera.PNG";
     }
     this.calcularResultado();
   }

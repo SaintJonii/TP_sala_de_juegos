@@ -5,7 +5,7 @@
 }
 
 #centro{
-    width: 40%;
+    width: 20%;
     display: inline-block;
 }
 
@@ -17,19 +17,20 @@
 
 img{
     width: 50%;
+    height: auto;
 }
 
 img.resultado{
-    width: 100%;
+    width: 50%;
 }
 
 button.opciones{
-    width: 70%;
-    background-color: blueviolet;
+    width: 50%;
+    background-color:white;
 }
 
 button.opciones:hover{
-    background-color: rgb(168, 93, 238);
+    background-color: whitesmoke;
 }
 
 button.elegido{
@@ -42,3 +43,10 @@ button.elegido{
     padding-bottom: 10px;
 }
 
+.center-content{
+    width: 70%;   
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    text-align: -webkit-center;
+  }

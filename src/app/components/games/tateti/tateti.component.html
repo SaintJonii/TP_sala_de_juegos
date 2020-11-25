@@ -1,15 +1,24 @@
 <app-navbar></app-navbar>
 
-<br>
-<h1 *ngIf="ganador==null"><b>Turno de: {{turnoActual}}</b></h1>
-<h1 *ngIf="ganador!=null"><b>RESULTADO: {{ganador}}</b></h1>
-<div class="grid">
-    <mat-grid-list cols="3" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let valor of celdas; let i = index">
-            <app-celda [valor]="valor" [bloqueado]="bloqueado" (click)="marcarCelda(i)"></app-celda>
-        </mat-grid-tile>
-    </mat-grid-list>
+<div class="center-content">
+    <mat-card>
+        <mat-card-title>
+            TATETI
+            <hr>
+        </mat-card-title>
+        <h2 *ngIf="ganador==null"><b>Turno de: {{turnoActual}}</b></h2>
+        <h2 *ngIf="ganador!=null"><b>RESULTADO: {{ganador}}</b></h2>
+        <div class="grid">
+            <mat-grid-list cols="3" rowHeight="1:1">
+                <mat-grid-tile *ngFor="let valor of celdas; let i = index">
+                    <app-celda [valor]="valor" [bloqueado]="bloqueado" (click)="marcarCelda(i)"></app-celda>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+        <hr>
+        <h3><b> Jugadas: {{jugadas}} | Ganadas: {{ganadas}} </b></h3>
+        <hr>
+        <button mat-raised-button color="primary" (click)="empezarJuegoNuevo()">Volver a jugar</button>
+    </mat-card>
+
 </div>
-<h3><b>| Jugadas: {{jugadas}} | Ganadas: {{ganadas}} |</b></h3>
-<button mat-raised-button color="primary" (click)="empezarJuegoNuevo()">Volver a jugar</button>
-<br><br>
