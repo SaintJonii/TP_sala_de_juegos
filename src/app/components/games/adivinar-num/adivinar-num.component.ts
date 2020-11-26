@@ -14,6 +14,7 @@ export class AdivinarNumComponent implements OnInit {
   contador: number;
   ocultarVerificar: boolean;
   juegoStore = 'adivina';
+  nombreJuego = 'Adivina Número'
   puntuacion = 0;
 
   constructor(private utilService: UtilService, private toastr: ToastrService) {

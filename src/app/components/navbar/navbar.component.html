@@ -12,15 +12,8 @@
 
     <div fxShow="true" fxHide.lt-md="true">
         <a mat-button routerLink="/home">Home</a>
-        <!-- <a mat-button routerLink="/games/anagrama">Anagrama</a>
-        <a mat-button routerLink="/games/ppt">PPT</a>
-        <a mat-button routerLink="/games/agilidadNum">Agilidad Aritmética</a>
-        <a mat-button routerLink="/games/adivinaNum">Adivinar Número</a>
-        <a mat-button routerLink="/games/tateti">Tateti</a>
-        <a mat-button routerLink="/games/memotest">Memotest</a>
-        <a mat-button routerLink="/games/trivia">Trivia</a> -->
         <a mat-button routerLink="/about"> About Us</a>
-        <a mat-button>Cerrar Sesión</a>
+        <a mat-raised-button (click)="signOut()" routerLink="/login">Cerrar Sesión</a>
 
     </div>
 </mat-toolbar>

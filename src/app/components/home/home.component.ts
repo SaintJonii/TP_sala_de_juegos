@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
     { id: 3, src: "assets/adiv.jpg", nombre: "Adivinar Número", path: "/games/adivinaNum" },
     { id: 4, src: "assets/tat.jpg", nombre: "Tateti", path: "/games/tateti" },
     { id: 5, src: "assets/logo.JPG", nombre: "Memotest", path: "/games/memotest" },
-    { id: 6, src: "assets/trivia.jpg", nombre: "Trivia", path: "/games/trivia" }
+    { id: 6, src: "assets/trivia.jpg", nombre: "Trivia", path: "/games/trivia" },
+    { id: 7, src: "assets/lista.JPG", nombre: "Ranking Jugadores", path: "/listado" }
   ];
 
   constructor() { }

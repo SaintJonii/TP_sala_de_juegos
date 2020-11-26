@@ -36,6 +36,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PuntuacionComponent } from './components/puntuacion/puntuacion.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ListadoComponent } from './components/listado/listado.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,8 @@ import { ToastrModule } from 'ngx-toastr';
     CartaComponent,
     CeldaComponent,
     TriviaComponent,
-    PuntuacionComponent
+    PuntuacionComponent,
+    ListadoComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +82,9 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 2500,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    })
+    }),
+    MatTableModule,
+    MatPaginatorModule
 
   ],
   providers: [],

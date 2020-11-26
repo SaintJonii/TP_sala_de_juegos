@@ -82,6 +82,7 @@ export class TriviaComponent implements OnInit {
   showPregunta: boolean = false;
 
   juegoStore = 'trivia';
+  nombreJuego = 'Trivia';
   puntuacion = 0;
 
   constructor(private utilService: UtilService, private toastr: ToastrService) { }

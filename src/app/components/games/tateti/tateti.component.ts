@@ -21,6 +21,7 @@ export class TatetiComponent implements OnInit {
   partidasGanadas = new Array();
 
   juegoStore = 'tateti';
+  nombreJuego = 'Tateti';
   puntuacion;
 
   constructor(private utilService: UtilService, private toastr: ToastrService) { }

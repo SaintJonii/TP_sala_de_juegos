@@ -35,6 +35,7 @@ export class MemotestComponent implements OnInit {
   interval;
 
   juegoStore = 'memotest';
+  nombreJuego = 'Memotest'
   puntuacion = 0;
 
   mensaje: string = "Recordá la posición de las tarjetas!!";

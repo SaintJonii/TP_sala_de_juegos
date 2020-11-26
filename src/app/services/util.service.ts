@@ -26,12 +26,13 @@ export class UtilService {
 
   }
 
-  setTopPlayer(usuario: string, nombre: string, puntos: number, juego: string) {
+  setTopPlayer(usuario: string, nombre: string, puntos: number, juego: string, nombreJuego: string) {
     this.afs.collection('juegos').doc(juego).set(
       {
         jugador: usuario,
         nombre: nombre,
         puntos: puntos,
+        juego: nombreJuego,
         fecha: new Date()
       }
     );

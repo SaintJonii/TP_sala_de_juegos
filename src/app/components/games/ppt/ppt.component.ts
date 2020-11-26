@@ -20,6 +20,7 @@ export class PptComponent implements OnInit {
   resultado: string = "Esperando...";
 
   juegoStore = 'ppt';
+  nombreJuego = 'Piedra, papel o tijera'
   puntuacion = 0;
 
   constructor(private utilService: UtilService, private toastr: ToastrService) {

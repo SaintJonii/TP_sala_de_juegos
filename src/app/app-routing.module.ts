@@ -11,6 +11,7 @@ import { AdivinarNumComponent } from '../app/components/games/adivinar-num/adivi
 import { LoginComponent } from './pages/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { TriviaComponent } from './components/games/trivia/trivia.component';
+import { ListadoComponent } from './components/listado/listado.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'games/trivia', component: TriviaComponent, canActivate: [LoginGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent, canActivate: [LoginGuard] },
+  { path: 'listado', component: ListadoComponent, canActivate: [LoginGuard] },
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: HomeComponent }

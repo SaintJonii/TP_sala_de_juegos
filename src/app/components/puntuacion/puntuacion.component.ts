@@ -10,6 +10,7 @@ export class PuntuacionComponent implements AfterViewInit, OnInit {
 
   @Input() puntuacion;
   @Input() juegoStore;
+  @Input() nombreJuego;
   public userName;
   private user;
 
@@ -41,7 +42,7 @@ export class PuntuacionComponent implements AfterViewInit, OnInit {
     debugger;
 
     if (this.puntuacion > this.puntuacionMax) {
-      this.utilService.setTopPlayer(this.user, this.userName, this.puntuacion, this.juegoStore);
+      this.utilService.setTopPlayer(this.user, this.userName, this.puntuacion, this.juegoStore, this.nombreJuego);
     }
   }
 

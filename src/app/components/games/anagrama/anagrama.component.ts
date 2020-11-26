@@ -35,6 +35,7 @@ export class AnagramaComponent implements OnInit {
   showInput: boolean = false;
 
   juegoStore = 'anagrama';
+  nombreJuego = 'Anagrama';
   puntuacion = 0;
 
   constructor(private utilService: UtilService, private toastr: ToastrService) { }
