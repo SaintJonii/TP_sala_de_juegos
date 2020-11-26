@@ -12,11 +12,11 @@
                 <h1 *ngIf="!showPregunta">Cuando estes listo, empezamos con las preguntas</h1>
                 <h1 *ngIf="showPregunta">La pregunta a contestar es la siguiente</h1>
             </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <h1 *ngIf="showPregunta">{{pregunta.pregunta}}</h1>
-            </mat-list-item>
 
+            <mat-list-item>
+                <h1 *ngIf="showPregunta"><b>{{pregunta.pregunta}}</b></h1>
+            </mat-list-item>
+            <br>
             <mat-list-item *ngIf="showPregunta">
                 <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                     name="respSeleccionada" [(ngModel)]="respSeleccionada">
@@ -26,6 +26,7 @@
                 </mat-radio-group>
             </mat-list-item>
         </mat-list>
+        <br>
 
 
         <button mat-raised-button color="primary" *ngIf="!showPregunta" (click)="cargarPregunta()">Listo para

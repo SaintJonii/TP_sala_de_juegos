@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JuegoAdivina } from "../../../classes/juego-adivina";
 import { UtilService } from 'src/app/services/util.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-adivinar-num',
@@ -15,23 +16,24 @@ export class AdivinarNumComponent implements OnInit {
   juegoStore = 'adivina';
   puntuacion = 0;
 
-  constructor(private utilService: UtilService) {
+  constructor(private utilService: UtilService, private toastr: ToastrService) {
     this.nuevoJuego = new JuegoAdivina();
     console.info('numero Secreto:', this.nuevoJuego.numeroSecreto);
     this.ocultarVerificar = false;
   }
+
   generarnumero() {
     this.nuevoJuego.generarnumero();
     this.contador = 0;
   }
+
   verificar() {
     this.contador++;
     this.ocultarVerificar = true;
     console.info('numero Secreto:', this.nuevoJuego.gano);
     if (this.nuevoJuego.verificar()) {
 
-
-      this.MostarMensaje('Numero adivinado!!', true);
+      this.MostarMensaje('Numero adivinado!!', true, false);
       this.nuevoJuego.numeroSecreto = 0;
 
     } else {
@@ -39,49 +41,57 @@ export class AdivinarNumComponent implements OnInit {
       let mensaje: string;
       switch (this.contador) {
         case 1:
-          mensaje = 'No, intento fallido, animo';
+          mensaje = 'Intento fallido, ';
           break;
         case 2:
-          mensaje = 'No,Te estaras Acercando???';
+          mensaje = 'Casi, ';
           break;
         case 3:
-          mensaje = 'No es, Yo crei que la tercera era la vencida.';
+          mensaje = 'La tercera era la vencida? ';
           break;
         case 4:
-          mensaje = 'No era el  ' + this.nuevoJuego.numeroIngresado;
+          mensaje = 'Dale que llegas, ';
           break;
         case 5:
-          mensaje = ' intentos y nada.';
-          break;
-        case 6:
-          mensaje = 'Afortunado en el amor';
+          mensaje = 'Ultima chance! ';
           break;
 
         default:
-          mensaje = 'Ya le erraste ' + this.contador + ' veces';
+          mensaje = '';
+          this.MostarMensaje(mensaje, false, true);
           break;
       }
-      this.MostarMensaje('#' + this.contador + ' ' + mensaje + ' ayuda :' + this.nuevoJuego.retornarAyuda());
+      if (this.contador < 6) {
+        this.MostarMensaje(mensaje + this.nuevoJuego.retornarAyuda(), false, false);
+      }
+
 
 
     }
     console.info('numero Secreto:', this.nuevoJuego.gano);
   }
 
-  MostarMensaje(mensaje: string = 'este es el mensaje', ganador: boolean = false) {
-    this.Mensajes = mensaje;
-    const x = document.getElementById('snackbar');
-    if (ganador) {
-      x.className = 'show Ganador';
-    } else {
-      x.className = 'show Perdedor';
+  MostarMensaje(mensaje: string, ganador: boolean, finJuego: boolean) {
+
+    if (finJuego) {
+      this.toastr.error('Segui intentando para sumar puntos', 'Fin del juego');
+      this.puntuacion = 0;
+      this.nuevoJuego.numeroSecreto = 0;
+      return;
     }
-    const modelo = this;
-    setTimeout(function () {
-      x.className = x.className.replace('show', '');
-      modelo.ocultarVerificar = false;
-    }, 3000);
-    console.info('objeto', x);
+
+    if (ganador) {
+      this.toastr.success('Adivinaste el numero! +50 puntos', 'Excelente');
+      this.puntuacion += 50;
+      return;
+    }
+    else {
+      this.toastr.warning(mensaje, 'Segui intentando');
+      return;
+    }
+
+
+
 
   }
 

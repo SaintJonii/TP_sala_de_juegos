@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from 'src/app/services/util.service';
+import { ToastrService } from 'ngx-toastr';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-anagrama',
@@ -35,7 +37,7 @@ export class AnagramaComponent implements OnInit {
   juegoStore = 'anagrama';
   puntuacion = 0;
 
-  constructor(private utilService: UtilService) { }
+  constructor(private utilService: UtilService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.utilService.getTopPlayer(this.juegoStore);
@@ -67,27 +69,50 @@ export class AnagramaComponent implements OnInit {
       cadenaAux[currentIndex] = cadenaAux[randomIndex];
       cadenaAux[randomIndex] = temporaryValue;
     }
-    return cadenaAux.toString().replace(/,/g, "").toUpperCase();
+    return cadenaAux.toString().replace(/,/g, " ").toUpperCase();
 
   }
 
   comparar() {
     if (this.palabraIngresada.toUpperCase() == this.palabra) {
-      alert("Palabra correcta!!");
+      if (this.count > 0) {
+        this.toastr.success('Palabra correcta, pero con ayuda! +30 puntos', 'Muy Bien');
+        this.puntuacion += 30;
+      }
+      else {
+        this.toastr.success('Palabra correcta! +50 puntos', 'Excelente');
+        this.puntuacion += 50;
+      }
+
+      this.reiniciarValores();
     }
     else {
-      this.msjAyuda = "Te doy otra ayuda para que la saques";
-      if (this.count == 0) {
-        this.count++;
+      this.count++;
+
+      if (this.count == 1) {
+        this.toastr.warning('Te doy otra ayuda para que la saques', 'Casi');
         this.primerLet = this.palabra.substring(0, 2);
         return;
       }
-      if (this.count == 1 && this.palabra.length > 5) {
-        this.count++;
+      if (this.count == 2 && this.palabra.length > 5) {
+        this.toastr.warning('Otra ayuda pero es la ultima chance', 'Casi');
         this.primerLet = this.palabra.substring(0, 3);
         return;
       }
+      if (this.count == 3) {
+        this.toastr.error('Palabra Incorrecta, será la próxima', 'Fin del juego');
+        this.reiniciarValores();
+        this.puntuacion = 0;
+      }
     }
+  }
+
+  reiniciarValores() {
+    this.showInput = false;
+    this.palabraIngresada = null;
+    this.palabra = "";
+    this.palabraDesordenada = null;
+    this.count = 0;
   }
 
 

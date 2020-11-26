@@ -13,7 +13,7 @@
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>
-                <h3 *ngIf="palabra != '' ">{{msjAyuda}} : Empieza con <b>{{primerLet}}</b> y termina con
+                <h3 *ngIf="palabra != '' ">Empieza con <b>{{primerLet}}</b> y termina con
                     <b>{{ultimaLet}}</b></h3>
             </mat-list-item>
         </mat-list>
@@ -24,10 +24,10 @@
                 <input type="text" matInput placeholder="Ingresa la palabra ordenada" [(ngModel)]="palabraIngresada"
                     name="palabraIngresada">
             </mat-form-field>
-            <button mat-raised-button color="warn" (click)="comparar()">Enviar palabra!</button>
+            <button mat-raised-button color="warn" (click)="comparar()" *ngIf="showInput">Enviar palabra!</button>
         </form>
 
-        <button mat-raised-button color="primary" (click)="cargarPalabra()">¡Empezar!</button>
+        <button mat-raised-button color="primary" (click)="cargarPalabra()" *ngIf="!showInput">¡Empezar!</button>
     </mat-card>
 </div>
 <app-puntuacion [puntuacion]="puntuacion" [juegoStore]='juegoStore'></app-puntuacion>

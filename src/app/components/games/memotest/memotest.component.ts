@@ -91,6 +91,8 @@ export class MemotestComponent implements OnInit {
     if (this.cartasSeleccionadas == 2) {
       this.compararCartas();
     }
+
+    this.checkCartas();
   }
 
   compararCartas() {
@@ -114,7 +116,7 @@ export class MemotestComponent implements OnInit {
             carta.flipped = !carta.flipped;
           }
         });
-      }, 1500);
+      }, 500);
 
       this.cartasSeleccionadas = 0;
     }
@@ -153,6 +155,11 @@ export class MemotestComponent implements OnInit {
   transform(value: number): string {
     const minutes: number = Math.floor(value / 60);
     return minutes + ':' + (value - minutes * 60);
+  }
+
+  checkCartas() {
+
+
   }
 
 

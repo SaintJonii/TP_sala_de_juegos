@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from 'src/app/services/util.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-trivia',
@@ -83,7 +84,7 @@ export class TriviaComponent implements OnInit {
   juegoStore = 'trivia';
   puntuacion = 0;
 
-  constructor(private utilService: UtilService) { }
+  constructor(private utilService: UtilService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.utilService.getTopPlayer(this.juegoStore);
@@ -130,11 +131,13 @@ export class TriviaComponent implements OnInit {
 
   comparar() {
     if (this.respValida == this.respSeleccionada) {
-      alert("Respuesta Correcta!!, siguiente pregunta:");
+      this.toastr.success("Respuesta correcta! +50 puntos", "Excelente");
+      this.puntuacion += 50;
       this.cargarPregunta();
     }
     else {
-      alert("Respuesta Incorrecta!!, seleccione nuevamente.");
+      this.toastr.warning("Respuesta incorrecta!", "Casi");
+      this.puntuacion = 0;
     }
   }
 

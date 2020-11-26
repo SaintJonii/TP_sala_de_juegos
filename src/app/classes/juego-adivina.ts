@@ -26,6 +26,6 @@ export class JuegoAdivina extends Juego {
     if (this.numeroIngresado < this.numeroSecreto) {
       return 'Te falta para acercarte';
     }
-    return 'Te pasate del número ';
+    return 'Te pasaste del número ';
   }
 }
