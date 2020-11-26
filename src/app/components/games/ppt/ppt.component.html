@@ -21,7 +21,7 @@
         </div>
 
         <div id="centro">
-            <b>| Jugadas: {{jugadas}} | Ganadas: {{ganadas}} |</b>
+            <b> Ronda: {{jugadas}}/{{ronda}} </b>
             <div class="divOpciones">
                 <p>Usuario:</p>
                 <button disabled class="elegido">
@@ -50,3 +50,5 @@
     </mat-card>
 
 </div>
+
+<app-puntuacion [puntuacion]="puntuacion" [juegoStore]='juegoStore'></app-puntuacion>

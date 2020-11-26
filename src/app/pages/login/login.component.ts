@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   reg_email: string;
   reg_pass: string;
   reg_confirm_pass: string;
+  userName: string;
 
   constructor(private auth: AuthService) { }
 
@@ -22,9 +23,24 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.auth.loginUser(this.log_email, this.log_pass);
+    debugger;
+    if (this.log_email == null || this.log_pass == null) {
+      return;
+    }
+    else {
+      this.auth.loginUser(this.log_email, this.log_pass);
+    }
   }
 
-  register() { }
+
+
+  register() {
+    if (this.reg_email == null || this.reg_pass == null || this.userName == null) {
+      return;
+    }
+    else {
+      this.auth.registerUser(this.reg_email, this.reg_pass, this.userName);
+    }
+  }
 
 }

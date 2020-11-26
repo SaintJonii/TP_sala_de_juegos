@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-trivia',
@@ -79,9 +80,13 @@ export class TriviaComponent implements OnInit {
   respSeleccionada;
   showPregunta: boolean = false;
 
-  constructor() { }
+  juegoStore = 'trivia';
+  puntuacion = 0;
+
+  constructor(private utilService: UtilService) { }
 
   ngOnInit(): void {
+    this.utilService.getTopPlayer(this.juegoStore);
   }
 
   cargarPregunta() {

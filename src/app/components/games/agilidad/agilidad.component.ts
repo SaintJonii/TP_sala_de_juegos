@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoAgilidad } from "../../../classes/juego-agilidad";
+import { ToastrService } from 'ngx-toastr';
 
-import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-agilidad',
@@ -16,8 +17,10 @@ export class AgilidadComponent implements OnInit {
   Tiempo: number;
   repetidor: any;
   public nombreJuego = 'Agilidad Aritmética';
-  private subscription: Subscription;
+  juegoStore = 'agilidad';
+  public puntuacion;
 
+  public ultimaChance: boolean;
   public pNumero: number;
   public sNumero: number;
   public sOperador: string;
@@ -27,13 +30,18 @@ export class AgilidadComponent implements OnInit {
   public contadorJuego = 0;
 
 
+
   ngOnInit() {
+    this.utilService.getTopPlayer(this.juegoStore);
   }
-  constructor(private router: Router) {
+
+  constructor(private router: Router, private toastr: ToastrService, private utilService: UtilService) {
     this.contadorJuego = 0;
+    this.puntuacion = 0;
     this.ocultarVerificar = true;
     this.Tiempo = 10;
     this.nuevoJuego = new JuegoAgilidad();
+    this.ultimaChance = false;
 
   }
 
@@ -46,7 +54,8 @@ export class AgilidadComponent implements OnInit {
   }
 
   NuevoJuego() {
-
+    this.Tiempo = 10;
+    this.ultimaChance = false;
     this.nuevoJuego = new JuegoAgilidad();
     this.pNumero = this.nuevoJuego.primerNumero;
     this.sNumero = this.nuevoJuego.segundoNumero;
@@ -58,7 +67,6 @@ export class AgilidadComponent implements OnInit {
       this.Tiempo--;
       if (this.Tiempo === 0) {
         clearInterval(this.repetidor);
-        this.verificar();
         this.ocultarVerificar = true;
         this.Tiempo = 10;
       }
@@ -71,24 +79,44 @@ export class AgilidadComponent implements OnInit {
     console.log('Tu respuesta: ' + this.respuesta);
 
     if (this.nuevoJuego.realizarCuenta() == this.respuesta) {
-      this.mensajeResultado = 'GANASTE';
+
+      if (this.contadorJuego == 1) {
+        this.puntuacion += 50;
+        this.mensajeResultado = 'Respuesta correcta! +50 puntos';
+      }
+      else {
+        this.puntuacion += 30;
+        this.mensajeResultado = 'Respuesta correcta! +30 puntos';
+      }
+
+      this.toastr.success(this.mensajeResultado, 'Excelente');
+      this.ocultarVerificar = true;
+      this.contadorJuego = 0;
 
     } else {
 
       if (this.contadorJuego == 2) {
-        this.mensajeResultado = 'PERDISTE';
+        this.mensajeResultado = 'Respuesta incorrecta, la proxima será';
+        this.toastr.error(this.mensajeResultado, 'Fin del juego');
+        this.puntuacion = 0;
         this.contadorJuego = 0;
+        this.ocultarVerificar = true;
 
       } else {
-        this.mensajeResultado = '¿Malo para las cuentas? ' + 'Te quedan ' + (2 - this.contadorJuego) + ' intentos';
+        this.mensajeResultado = '¿Muy dificil esta vez? ' + 'Te quedan ' + (2 - this.contadorJuego) + ' intentos';
+        this.toastr.warning(this.mensajeResultado, 'Segui intentando');
+        this.ultimaChance = true;
       }
 
     }
 
-    this.ocultarVerificar = true;
+
     clearInterval(this.repetidor);
-    this.Tiempo = 10;
+    this.Tiempo = null;
     this.respuesta = null;
+
+
+
   }
 
 }

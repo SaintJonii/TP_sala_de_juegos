@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-memotest',
@@ -33,17 +34,21 @@ export class MemotestComponent implements OnInit {
   display;
   interval;
 
+  juegoStore = 'memotest';
+  puntuacion = 0;
+
   mensaje: string = "Recordá la posición de las tarjetas!!";
 
   carta1: any = {};
   carta2: any = {};
   cartasSeleccionadas: number = 0;
 
-  constructor() {
+  constructor(private utilService: UtilService) {
     this.listImg = this.cargarAleatoriamente();
   }
 
   ngOnInit(): void {
+    this.utilService.getTopPlayer(this.juegoStore);
   }
 
   cargarAleatoriamente() {

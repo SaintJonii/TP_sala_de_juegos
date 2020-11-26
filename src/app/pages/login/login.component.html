@@ -26,6 +26,11 @@
                 <mat-tab label="Register">
 
                     <mat-form-field class="example-full-width">
+                        <mat-label>Nombre y Apellido</mat-label>
+                        <input matInput placeholder="Nombre y Apellido" value="" [(ngModel)]="userName" required>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
                         <mat-label>Email</mat-label>
                         <input matInput placeholder="Email" value="" [(ngModel)]="reg_email">
                     </mat-form-field>

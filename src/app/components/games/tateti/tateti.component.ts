@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from 'src/app/services/util.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tateti',
@@ -18,10 +20,14 @@ export class TatetiComponent implements OnInit {
   partidas = new Array();
   partidasGanadas = new Array();
 
-  constructor() { }
+  juegoStore = 'tateti';
+  puntuacion;
+
+  constructor(private utilService: UtilService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-
+    this.puntuacion = 0;
+    this.utilService.getTopPlayer(this.juegoStore);
     this.empezarJuegoNuevo();
   }
 
@@ -61,7 +67,7 @@ export class TatetiComponent implements OnInit {
       }
     }
     this.turno = !this.turno;
-    this.turnoActual = "IA";
+    this.turnoActual = "PC";
   }
 
   turnoIA() {
@@ -98,21 +104,24 @@ export class TatetiComponent implements OnInit {
       this.bloqueado = true;
       ganador = "Empate";
       this.ganador = "¡Hay empate!";
-      //this.jugadas++;
+      this.toastr.warning("No se pudieron sacar ventaja. +10 puntos", 'Empate');
+      this.puntuacion += 10;
 
     }
     else if (ganador != null) {
       this.bloqueado = true;
       if (ganador == "X") {
         this.ganador = "¡Ganó el Usuario!";
-        //this.ganadas++;
+        this.toastr.success("Ganaste la partida. +30 puntos", 'Excelente');
+        this.puntuacion += 30;
 
       }
       else if (ganador == "O") {
         this.ganador = "¡Ganó la IA!";
+        this.toastr.error("Perdiste la partida", 'Fin del Juego');
 
       }
-      //this.jugadas++;
+
     }
 
     return ganador;

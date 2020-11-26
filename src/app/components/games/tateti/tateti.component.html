@@ -16,9 +16,9 @@
             </mat-grid-list>
         </div>
         <hr>
-        <h3><b> Jugadas: {{jugadas}} | Ganadas: {{ganadas}} </b></h3>
-        <hr>
         <button mat-raised-button color="primary" (click)="empezarJuegoNuevo()">Volver a jugar</button>
     </mat-card>
 
 </div>
+
+<app-puntuacion [puntuacion]="puntuacion" [juegoStore]='juegoStore'></app-puntuacion>

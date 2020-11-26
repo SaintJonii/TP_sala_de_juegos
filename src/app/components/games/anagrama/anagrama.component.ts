@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-anagrama',
@@ -31,9 +32,13 @@ export class AnagramaComponent implements OnInit {
   count: number = 0;
   showInput: boolean = false;
 
-  constructor() { }
+  juegoStore = 'anagrama';
+  puntuacion = 0;
+
+  constructor(private utilService: UtilService) { }
 
   ngOnInit(): void {
+    this.utilService.getTopPlayer(this.juegoStore);
   }
 
 
