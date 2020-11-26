@@ -21,7 +21,7 @@ import { AdivinarNumComponent } from './components/games/adivinar-num/adivinar-n
 import { TatetiComponent } from './components/games/tateti/tateti.component';
 import { MemotestComponent } from './components/games/memotest/memotest.component';
 import { AboutComponent } from './components/about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -69,6 +69,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     FlexLayoutModule,
     MatSidenavModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     MatCardModule,
     MatTabsModule,

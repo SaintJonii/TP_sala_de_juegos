@@ -12,41 +12,51 @@
                 <mat-tab label="Login">
                     <mat-form-field class="example-full-width">
                         <mat-label>Email</mat-label>
-                        <input matInput placeholder="Email" value="" [(ngModel)]="log_email" required>
+                        <input matInput placeholder="Email" value="" [(ngModel)]="log_email" [formControl]="email"
+                            required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                         <mat-icon matSuffix>email</mat-icon>
                     </mat-form-field>
 
                     <mat-form-field class="example-full-width">
                         <mat-label>Password</mat-label>
-                        <input matInput type="password" placeholder="Password" [(ngModel)]="log_pass" required>
+                        <input matInput type="password" placeholder="Password" [(ngModel)]="log_pass"
+                            [formControl]="password" required>
+                        <mat-error *ngIf="password.invalid">{{getErrorMessage2()}}</mat-error>
                         <mat-icon matSuffix>vpn_key</mat-icon>
                     </mat-form-field>
                     <button mat-button color="primary" (click)="login()">Login</button>
                 </mat-tab>
                 <mat-tab label="Register">
 
+
                     <mat-form-field class="example-full-width">
                         <mat-label>Nombre y Apellido</mat-label>
-                        <input matInput placeholder="Nombre y Apellido" value="" [(ngModel)]="userName" required>
-                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <input matInput placeholder="Nombre y Apellido" value="" [(ngModel)]="userName"
+                            [formControl]="nameControl" required>
                     </mat-form-field>
 
                     <mat-form-field class="example-full-width">
                         <mat-label>Email</mat-label>
-                        <input matInput placeholder="Email" value="" [(ngModel)]="reg_email" required>
+                        <input matInput placeholder="Email" value="" [(ngModel)]="reg_email"
+                            [formControl]="regMailControl" required>
+                        <mat-error *ngIf="regMailControl.invalid">{{getErrorMessage()}}</mat-error>
                         <mat-icon matSuffix>email</mat-icon>
                     </mat-form-field>
 
                     <mat-form-field class="example-full-width">
                         <mat-label>Password</mat-label>
-                        <input matInput type="password" placeholder="Password" [(ngModel)]="reg_pass" required>
+                        <input matInput type="password" placeholder="Password" [(ngModel)]="reg_pass"
+                            [formControl]="regPassControl" required>
+                        <mat-error *ngIf="regPassControl.invalid">{{getErrorMessage2()}}</mat-error>
                         <mat-icon matSuffix>vpn_key</mat-icon>
                     </mat-form-field>
 
                     <mat-form-field class="example-full-width">
                         <mat-label>Confirm Password</mat-label>
                         <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="reg_confirm_pass"
-                            required>
+                            [formControl]="regConfControl" required>
+                        <mat-error *ngIf="regConfControl.invalid">{{getErrorMessage2()}}</mat-error>
                         <mat-icon matSuffix>mode_edit</mat-icon>
                     </mat-form-field>
                     <button mat-button color="primary" (click)="register()">Register</button>

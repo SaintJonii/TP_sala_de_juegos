@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'Ingresa mail';
+      return 'Ingresa el mail';
     }
 
     if (this.password.hasError('required')) {
@@ -78,6 +78,20 @@ export class LoginComponent implements OnInit {
     }
 
     return this.email.hasError('email') ? 'No es un mail válido' : '';
+  }
+
+  getErrorMessage2() {
+    if (this.password.hasError('required')) {
+      return 'Ingresa la contraseña';
+    }
+
+    if (this.regPassControl.hasError('required')) {
+      return 'Ingresa la contraseña';
+    }
+
+    if (this.regConfControl.hasError('required')) {
+      return 'Ingresa la contraseña';
+    }
   }
 
 }
